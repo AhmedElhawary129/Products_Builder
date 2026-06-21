@@ -1,5 +1,5 @@
 import { v4 as uuid } from "uuid";
-import type { IProduct } from "../interfaces/indes";
+import type { IFormInput, IProduct } from "../interfaces";
 
 export const productList: IProduct[] = [
   {
@@ -181,5 +181,32 @@ export const productList: IProduct[] = [
       imageURL:
         "https://res.cloudinary.com/dsdfp1ugq/image/upload/v1781972593/images_1_infrrn.jpg",
     },
+  },
+];
+
+export const formInputList: IFormInput[] = [
+  {
+    id: "title",
+    name: "title",
+    label: "Product Title",
+    type: "text",
+  },
+  {
+    id: "description",
+    name: "description",
+    label: "Product Description",
+    type: "text",
+  },
+  {
+    id: "image",
+    name: "imageURL",
+    label: "Product Image URL",
+    type: "text",
+  },
+  {
+    id: "price",
+    name: "price",
+    label: "Product Price",
+    type: "text",
   },
 ];

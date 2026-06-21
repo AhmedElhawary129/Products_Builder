@@ -1,4 +1,4 @@
-import type { IProduct } from "../interfaces/indes";
+import type { IProduct } from "../interfaces";
 import { textSlicer } from "../utils/functions";
 import Image from "./Image";
 import Button from "./ui/Button";

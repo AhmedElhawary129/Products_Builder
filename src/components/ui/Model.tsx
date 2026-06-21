@@ -1,4 +1,4 @@
-import { Button, Dialog, DialogPanel, DialogTitle } from "@headlessui/react";
+import { Dialog, DialogPanel, DialogTitle } from "@headlessui/react";
 import { type ReactNode } from "react";
 
 interface IProps {
@@ -9,8 +9,6 @@ interface IProps {
 }
 
 const Modal = ({ isOpen, close, title, children }: IProps) => {
-
-
   return (
     <>
       <Dialog
@@ -33,9 +31,7 @@ const Modal = ({ isOpen, close, title, children }: IProps) => {
                   {title}
                 </DialogTitle>
               )}
-              <div className="mt-4">
-                {children}
-              </div>
+              <div className="mt-4">{children}</div>
             </DialogPanel>
           </div>
         </div>
