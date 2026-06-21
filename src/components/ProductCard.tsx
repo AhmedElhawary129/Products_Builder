@@ -25,17 +25,20 @@ const ProductCard = ({ product }: IProps) => {
       </div>
       <div className="flex items-center justify-between">
         <span>${price}</span>
-        <Image
-          imageURL={category.imageURL}
-          alt={category.name}
-          calssName="w-10 h-10 rounded-full object-bottom"
-        />
+        <div className="flex items-center space-x-2">
+          <Image
+            imageURL={category.imageURL}
+            alt={category.name}
+            calssName="w-10 h-10 rounded-full object-bottom"
+          />
+          <span>{category.name}</span>
+        </div>
       </div>
       <div className="flex items-center justify-between space-x-2 mt-5">
-        <Button className="bg-indigo-700" width="w-full">
+        <Button className="bg-indigo-700 hover:bg-indigo-800" width="w-full">
           EDIT
         </Button>
-        <Button className="bg-red-700">DELETE</Button>
+        <Button className="bg-red-700 hover:bg-red-800">DELETE</Button>
       </div>
     </div>
   );
