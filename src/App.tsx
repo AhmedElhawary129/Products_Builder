@@ -1,22 +1,43 @@
-import { useState } from "react";
+import { useState, type ChangeEvent } from "react";
 import ProductCard from "./components/ProductCard";
 import Model from "./components/ui/Model";
 import { formInputList, productList } from "./data";
 import Button from "./components/ui/Button";
 import Input from "./components/ui/Input";
+import type { IProduct } from "./interfaces";
 
 const App = () => {
   // State
+  const [product, setProduct] = useState<IProduct>({
+    title: "",
+    description: "",
+    imageURL: "",
+    price: "",
+    colors: [],
+    category: {
+      name: "",
+      imageURL: "",
+    },
+  });
   const [isOpen, setIsOpen] = useState(false);
 
   // Handler
-  function open() {
+  const open = () => {
     setIsOpen(true);
-  }
+  };
 
-  function close() {
+  const close = () => {
     setIsOpen(false);
-  }
+  };
+
+  const onChangeHandler = (event: ChangeEvent<HTMLInputElement>) => {
+    const { value, name } = event.target;
+
+    setProduct({
+      ...product,
+      [name]: value,
+    });
+  };
 
   // Renders
   const renderProductList = productList.map((product) => (
@@ -24,12 +45,19 @@ const App = () => {
   ));
   const renderFormInputList = formInputList.map((input, index) => (
     <div className="flex flex-col">
-      <label htmlFor={input.id} className="md-[2px] text-sm font-medium text-gray-700">{input.label}</label>
+      <label
+        htmlFor={input.id}
+        className="md-[2px] text-sm font-medium text-gray-700"
+      >
+        {input.label}
+      </label>
       <Input
         autoFocus={index === 0}
         type={input.type}
         id={input.id}
         name={input.name}
+        value={product[input.name]}
+        onChange={onChangeHandler}
       />
     </div>
   ));
